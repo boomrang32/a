@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple WebXR Scene</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- بارگذاری A-Frame از CDN -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <!-- صحنه سه‌بعدی -->
+    <a-scene>
+      <!-- آسمان با گرادیان -->
+      <a-sky
+        color="#6E9FD8"
+        material="shader: gradient; topColor: #6E9FD8; bottomColor: #E3F2FD; direction: up"
+      ></a-sky>
+
+      <!-- نور محیطی -->
+      <a-entity light="type: ambient; color: #FFF"></a-entity>
+
+      <!-- نور جهت‌دار -->
+      <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="1 1 1"></a-entity>
+
+      <!-- مکعب -->
+      <a-box
+        position="0 1.5 -3"
+        rotation="0 45 0"
+        color="#4CC3D9"
+        shadow
+        animation="property: rotation; to: 0 405 0; loop: true; dur: 8000; easing: linear"
+      ></a-box>
+
+      <!-- زمین -->
+      <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+
+      <!-- دوربین -->
+      <a-entity position="0 1.6 0">
+        <a-camera></a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
